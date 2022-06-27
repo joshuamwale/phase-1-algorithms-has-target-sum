@@ -1,22 +1,44 @@
+//runtime 0(n)
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = {};
+
+  for (const number of array) {
+    // n steps
+    const complement = target - number;
+    if (complement in seenNumbers) return true;
+    seenNumbers[number] = true;
+  }
+
+  return false;
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
 
-/* 
-  Add your pseudocode here
-*/
+//0(n) runtime
+function getSock(array) {
+  for (const item of array) {
+    if (item === "sock") return "sock";
+  }
+}
 
-/*
-  Add written explanation of your solution here
-*/
+//0(1) runtime
+function getSock(object) {
+  if (object.sock) return "sock";
+}
 
-// You can run `node index.js` to view these console logs
 if (require.main === module) {
-  // add your own custom tests in here
+
+  /*
+  My Big 0 time complexity of my function
+  Runtime: 0(n^2)
+  Space: 0(n)
+
+  hasTargetSum([1,2,3,4], 6)
+  seenNumbers= {
+    1: true;
+    2: true;
+    3; true
+  }
+*/
   console.log("Expecting: true");
   console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
 
